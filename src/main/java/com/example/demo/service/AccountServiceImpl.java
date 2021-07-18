@@ -9,12 +9,15 @@ import com.example.demo.exception.UnauthorizedException;
 import com.example.demo.security.ProvideJwt;
 import com.example.demo.model.dto.AccountDto;
 import com.example.demo.model.dto.InfoDto;
+import com.example.demo.model.dto.UserDto;
+import com.example.demo.model.mapper.AccountMapper;
 import com.example.demo.entity.Account;
 import com.example.demo.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,19 +40,19 @@ public class AccountServiceImpl implements AccountService {
         }
 
         String token = jwtProvider.generateTokenForEmployee(user);
-        InfoDto info = new InfoDto(
-                user.getAccountId(),
-                user.getAccountName(),
-                user.getEmailAddress(),
-                user.getRoleId(),
-                token
-        );
+        InfoDto info = new InfoDto(user.getAccountId(), user.getAccountName(), user.getEmailAddress(), user.getRoleId(),
+                token);
         return info;
     }
 
     @Override
-    public List<Account> getAllUser() {
-        return accountRepository.findAllBy();
+    public List<UserDto> getAllUser() {
+        List<Account> accounts = accountRepository.findAllBy();
+        List<UserDto> userDtos = new ArrayList<>();
+        for (Account account : accounts) {
+            userDtos.add(AccountMapper.toUserDto(account));
+        }
+        return userDtos;
     }
 
     @Override
@@ -63,28 +66,25 @@ public class AccountServiceImpl implements AccountService {
         return "account removed" + id;
     }
 
-    @Override
-    public Account createUser(CreateUserReq req) {
-        Date date = new Date();
-        Account user = accountRepository.findByEmailAddress(req.getEmailAddress());
-        if (user != null) {
-            throw new DuplicateKeyException("Email is already");
-        }
-        Account newUser = new Account(req.getAccountId(),req.getAccountName(),req.getAccountPassword(),
-                                    req.getEmailAddress(),"ava.png",
-                                    req.getAccountStatus(),date,
-                                    date,date, req.getRoleId());
-        System.out.println("create:"+ req.getAccountId());
-        accountRepository.save(newUser);
-        return newUser;
-    }
+    // @Override
+    // public InfoCreateUser createUser(CreateUserReq req) {
+    // Date date = new Date();
+    // Account user = accountRepository.findByEmailAddress(req.getEmailAddress());
+    // if (user != null) {
+    // throw new DuplicateKeyException("Email is already");
+    // }
+    // Account newUser = AccountMapper.toInfoCreateUserDto(req);
+    // System.out.println("create:" + req.getAccountId());
+    // accountRepository.save(newUser);
+    // return newUser;
+    // }
 
     @Override
     public Account updateUser(UpdateUserReq req, int id) {
-        Account user=accountRepository.findByAccountId(id);
-        Account userUpdate = new Account(user.getAccountId(),req.getAccountName(),user.getAccountPassword(),
-                                    req.getEmailAddress(),user.getAccountImage(),user.getAccountStatus(),
-                                    user.getApprovalDate(),user.getDateCreated(),user.getDateModified(),user.getRoleId());
+        Account user = accountRepository.findByAccountId(id);
+        Account userUpdate = new Account(user.getAccountId(), req.getAccountName(), user.getAccountPassword(),
+                req.getEmailAddress(), user.getAccountImage(), user.getAccountStatus(), user.getApprovalDate(),
+                user.getDateCreated(), user.getDateModified(), user.getRoleId());
         accountRepository.save(userUpdate);
         return userUpdate;
     }
@@ -92,9 +92,9 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account updateUserByAdmin(UpdateUserByAdminReq req, int id) {
         Account user = accountRepository.findByAccountId(id);
-        Account userUpdatedByAdmin = new Account(req.getAccountId(),req.getAccountName(),user.getAccountPassword(),
-                                    req.getEmailAddress(),user.getAccountImage(),user.getAccountStatus(),user.getApprovalDate(),
-                                    user.getDateCreated(),user.getDateModified(),req.getRoleId());
+        Account userUpdatedByAdmin = new Account(req.getAccountId(), req.getAccountName(), user.getAccountPassword(),
+                req.getEmailAddress(), user.getAccountImage(), user.getAccountStatus(), user.getApprovalDate(),
+                user.getDateCreated(), user.getDateModified(), req.getRoleId());
         accountRepository.save(userUpdatedByAdmin);
         return userUpdatedByAdmin;
     }

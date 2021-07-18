@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entity.Account;
 import com.example.demo.model.dto.AccountDto;
 import com.example.demo.model.dto.InfoDto;
+import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.request.CreateUserReq;
 import com.example.demo.model.request.UpdateUserByAdminReq;
 import com.example.demo.model.request.UpdateUserReq;
@@ -24,30 +25,30 @@ public class UserController {
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/login")
     public InfoDto getInfo(@Valid @RequestBody AccountDto dto) {
-            return accountService.login(dto);
+        return accountService.login(dto);
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(value="/users")
-    public ResponseEntity<?> getListUsers() {
-        List<Account> users = accountService.getAllUser();
-        return ResponseEntity.ok(users);
+    @GetMapping(value = "/users")
+    public List<UserDto> getListUsers() {
+        return accountService.getAllUser();
+
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(value="users/{id}")
+    @GetMapping(value = "users/{id}")
     public ResponseEntity<?> getUsersById(@PathVariable int id) {
         System.out.println(id);
-        Account user =  accountService.getUserById(id);
+        Account user = accountService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
-    @CrossOrigin(origins = "*")
-    @PostMapping("/create")
-    public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserReq req) {
-        Account account = accountService.createUser(req);
-        return ResponseEntity.ok(account);
-    }
+    // @CrossOrigin(origins = "*")
+    // @PostMapping("/create")
+    // public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserReq req) {
+    // Account account = accountService.createUser(req);
+    // return ResponseEntity.ok(account);
+    // }
 
     @CrossOrigin(origins = "*")
     @PutMapping("/user/{id}")
