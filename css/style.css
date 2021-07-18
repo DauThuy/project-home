@@ -1,0 +1,233 @@
+/* RESET CSS
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*=========BASE CSS==========*/
+body {
+	color: #fff;
+	font-size: 15px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	line-height: 1.4; /*=1.4 font-size*/
+}
+
+.header-page .wrapper {
+	width: 1120px; /*80%*/
+	height: 100px;
+	margin: 0 auto; /*can giua*/
+}
+
+/*=========HEADER==========*/
+.page-header {
+	height: 66px;
+	width: 100%
+	background: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top: 0
+	left: 0;
+}
+
+.page-header .logo {
+	float: left;
+	padding-top: 21px;
+}
+
+.page-header .main-nav {
+	float: right;
+	line-height: 66px;
+}
+
+.page-header .main-nav ul li {
+	float: left;
+	margin-left: 86px;
+}
+
+.page-header .main-nav ul li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: inherit;
+}
+
+.banner {
+	height: 620px;
+	background: url(../images/banner.png);
+	background-size: cover;
+
+	text-align: center;
+	padding-top: 210px;
+	box-sizing: border-box;
+}
+
+.banner .banner-block .title {
+	font-size: 60px;
+	text-transform: uppercase;
+}
+
+.banner .banner-block .subtitle {
+	margin: 20px 0 30px;
+}
+
+.banner .banner-block .learn-more {
+	display: block;
+	width: 164px;
+	height: 50px;
+
+	color: #fff;
+	background: #f00;
+	opacity: 0.8;
+
+	margin: 0 auto;
+	text-transform: uppercase;;
+	text-decoration: none;
+	font-size: 21px;
+	line-height: 50px;
+}
+
+/*=========ARTICLES==========*/
+.articles {
+	background: rgb(255,252,252); /* Old browsers */
+	background: -moz-linear-gradient(-5deg, rgba(255,252,252,1) 0%, rgba(255,255,255,1) 50%, rgba(41,137,216,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-5deg, rgba(255,252,252,1) 0%,rgba(255,255,255,1) 50%,rgba(41,137,216,1) 50%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(95deg, rgba(255,252,252,1) 0%,rgba(255,255,255,1) 50%,rgba(41,137,216,1) 50%, rgba(0, 0, 0, 0.8) 100%;
+	
+	padding-top: 64px;
+	padding-bottom: 80px;
+}
+
+.articles .wrapper::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.articles article {
+	width: 50%;
+	float: left;
+	color: red;
+}
+
+.articles article:first-of-type {
+	padding-right: 112px;
+	box-sizing: border-box;
+	color: #000;
+
+}
+
+.articles h2 {
+	font-size28px;
+}
+
+.articles h2::after {
+	content: '';
+	display: block;
+	width: 40px;
+	height: 2px;
+	background: rgba(255, 0, 0, 0.8);
+	margin: 27px 0;
+}
+
+/*
+.articles h2 {
+	line-height: 1.4px;
+}
+*/
+
+.articles .text {
+	line-height: 1.4px;
+}
+
+.articles .quote {
+	font-style: italic;
+	font-size: 21px;
+}
+
+articles .text-desc {
+	margin-top: 27px;
+	margin-bottom: 67px;
+}
+
+.articles article:first-of-type {
+	margin-top: 27px;
+	margin-bottom: 67px;
+}
+
+
+.articles article:last-of-type {
+	padding-left: 112px;
+	box-sizing: border-box;
+}
+
+/*=========FOOTER==========*/
+.page-footer {
+	height: 177px;
+	background: r#000;
+	padding-top: 27px;
+}
+
+.page-footer .footer-col{
+	width: 25%;
+	float: left;
+}
+
+.page-footer .footer-col h3{
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.page-footer .footer-col he::after {
+	content: '';
+	display: block;
+	width: 90%;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.5);	
+}
+
+.page-footer .footer-col ul li{
+	opacity: 0.8;
+}
+

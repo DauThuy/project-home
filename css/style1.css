@@ -1,0 +1,274 @@
+/* RESET CSS
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*=========BASE CSS==========*/
+body {
+	color: #fff;
+	font-size: 15px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	line-height: 1.4; /*=1.4 font-size*/
+}
+
+.page-header .wrapper {
+	width: 1120px; /*80%*/
+	height: 100px;
+	margin: 0 auto; /*can giua*/
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/*=========HEADER==========*/
+.page-header {
+	height: 66px;
+	background: rgba(0, 0, 0, 0.8);
+
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute; /*căn vị trí theo thằng cha (body), mặc
+					     định witdh = nội dung content bên trong */
+
+}
+
+.page-header .logo {
+	float: left;
+	padding-top: 21px;
+}
+
+.page-header .main-nav {
+	float: right;
+	line-height: 66px;
+}
+
+.page-header .main-nav ul li {
+	float: left;
+	margin-left: 86px;
+}
+
+.page-header .main-nav ul li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: inherit;
+}
+
+/*=========MAIN==========*/
+/*=========BANNER==========*/
+.banner {
+	background-image: url(../images/banner.png);
+	height: 620px;
+	background-size: cover; /*Phủ hết banner, tránh trường hợp zomm to, nhỏ sẽ bị lặp lại theo chiều ngang hoặc dọc*/
+	text-align: center; /*căn text trong block ra giữa*/
+	padding-top: 210px;
+
+	box-sizing: border-box;
+}
+
+/*.block {
+	padding-top: 186px;
+}*/
+
+.banner .block .title {
+	font-size: 60px;
+	text-transform: uppercase;
+}
+
+.banner .block .subtitle {
+	margin: 20px 0px 30px;
+}
+
+.banner .block .learn-more {
+	display: block; /*vì a là thẻ inline, block để set width, height*/
+	width: 168px;
+	height: 50px;
+
+	background-color: red;
+	opacity: 80%; /*0.8*/
+
+	margin: 0 auto; /*căn giữa block ra màn hình*/
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 21px;
+	line-height: 50px; /*căn giữa chữ*/
+	
+	color: white;
+}
+
+/*=========ARTICLES==========*/
+.articles {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fcfcfc+0,fcf9fa+50,0a0a0a+50,0a0a0a+100 */
+	background: rgb(255,252,252); /* Old browsers */
+	background: -moz-linear-gradient(-5deg, rgba(255,252,252,1) 0%, rgba(255,255,255,1) 50%, rgba(41,137,216,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-5deg, rgba(255,252,252,1) 0%,rgba(255,255,255,1) 50%,rgba(41,137,216,1) 50%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(95deg, rgba(255,252,252,1) 0%,rgba(255,255,255,1) 50%,rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 100%);
+	
+	padding-top: 64px;
+	padding-bottom: 80px;
+}
+
+/*Xóa phần bị trôi nổi để đảm bảo text ban đầu cho mình*/
+.articles .wrapper::after { /*sau khi generate nội dung xong*/
+	content: '';
+	display: block; /*sau after là inline*/
+	clear: both;
+}
+
+.articles h2 {
+	font-size: 28px;
+}
+
+.articles h2::after {
+	content: '';
+	display: block;
+	width: 40px;
+	height: 2px;
+	background: rgba(255, 0, 0, 0.8);
+	margin: 27px 0px;
+
+}
+
+.articles article {
+	width: 50%;
+	float: left;	
+}
+
+.articles .quote {
+	font-style: italic;
+	font-size: 14px;
+
+}
+
+.articles .text-desc {
+	line-height: 1.4;
+	margin-top: 27px;
+	margin-bottom: 67px;
+}
+
+
+
+
+.articles article:first-of-type {
+	padding-right: 112px;
+	box-sizing: border-box;
+	color: black;
+}
+
+.articles article:last-of-type {
+	padding-left: 112px;
+	box-sizing: border-box;
+}
+
+
+/*=========FOOTER==========*/
+.page-footer {
+	height: 200px;
+	background: rgb(17, 17, 17);
+	/*box-sizing: border-box;*/
+}
+
+.page-footer .wrapper {
+	padding-top: 25px;
+	padding-bottom: 52px;
+}
+
+.page-footer .footer-col {
+	width: 25%; /*25% hteo cha của nó là wrapper*/
+	float: left;
+}
+
+.page-footer h3 {
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.page-footer h3::after {
+	content: '';
+	display: block;
+	width: 200px;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.5);
+
+	margin: 15px 0;
+}
+
+
+.page-footer ul li {
+	line-height: 1.6;
+	opacity: 0.5;
+}
+
+.page-footer .social li {
+	display: inline-block;
+	width: 42px;
+	height: 42px;
+
+	border-radius: 50%;
+	background: rgba(0, 0, 0);
+	text-align: center;
+	margin-left: 10px;
+
+}
+
+.page-footer .social li a {
+	/*text-decoration: none;*/
+	color: #fff;
+	line-height: 42px;
+}
+
+.copy {
+	margin-top: 36px;
+	opacity: 0.3;
+}
+
+
+
+	
