@@ -1,0 +1,182 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+label:hover {
+	cursor: pointer;
+}
+
+/*==================*/
+/*= CNN CSS  rem======*/
+/*==================*/
+.wrapper {
+	width: 1100px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.page-header {
+	width: 100%; 
+	height: 50px;
+	background-color: #0c0c0c;
+	color: rgb(191, 191, 191);
+}
+
+.page-header a {
+	color: inherit;
+}
+
+.page-header a:hover,
+.page-header label:hover {
+	color: #fff;
+}
+
+.header-left {
+	float: left;
+	display: flex;
+}
+
+.header-left ul {
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+.header-left ul li {
+	margin: 0 6px;
+}
+
+.header-left .page-logo img{
+	width: 60px;
+	height: 50px;
+}
+
+.header-left .page-nav {
+	margin-left: 20px;
+}
+
+.header-right {
+	float: right;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.header-right>* {
+	margin-left: 12px;
+}
+
+/*relative: so voi chinh no*/
+.page-international {
+	position: relative;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#international-switcher:checked ~.international-block {
+	display: block;
+}
+
+.international-block {
+	background-color: rgba(0, 0, 0, 0.9);
+	position: absolute;
+	top: 50px;
+	left: -55px;
+	display: none;
+
+	padding: 15px 15px 0 15px;
+	box-sizing: border-box;
+	text-align: right;
+	width: 220px;
+}
+
+.international-block ul li,
+.international-block p,
+.international-block div {
+	margin-bottom: 15px;
+}
+
+.international-block .confirm:hover {
+	background: #fff;
+	color: black;
+}
+
+.international-block .confirm {
+	background: transparent;
+    border: 1px solid #bfbfbf;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    color: #bfbfbf;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.page-search {
+	position: relative;
+}
+
+.page-search-filed {
+	position: absolute;
+	right: 50px;
+	width: 960px;
+
+	display: none;
+}
+
+.page-search-label {
+	display: none;
+}
+/*
+.page-search-field {
+	width: 960px;
+}
+*/
